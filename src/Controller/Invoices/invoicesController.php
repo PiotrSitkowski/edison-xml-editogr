@@ -98,6 +98,9 @@ class invoicesController extends Controller
         // update Invoice-Header
         $this->updateArrayData($XMLData['Invoice-Header'], $data['Invoice-Header']);
 
+        // update Invoice-Parties
+        $this->updateArrayData($XMLData['Invoice-Parties'], $data['Invoice-Parties']);
+
         // update Invoice-Lines
         foreach ($data['Invoice-Lines']['Line'] as $srcFormKeyPos => $srcFormPosData) {
             foreach ($data['Invoice-Lines']['Line'][$srcFormKeyPos]['Line-Item'] as $srcFormKeyLineItem => $srcFormItemData) {

@@ -1,0 +1,50 @@
+#not-found-doc {
+  margin-top: 100px;
+}
+#btn-save {
+  margin-bottom: 20px;
+}
+#invoicesTabs li a {
+  line-height: 16px;
+}
+#invoicesTabs li a span {
+  font-size:10px;
+  display: block;
+}
+#invoicesTabContent {
+  margin:10px;
+}
+.tab-form .form-group-sm {
+  margin-top: 15px;
+}
+.tab-form .form-group-sm input {
+  border: 1px solid #e1e1e1;
+  padding: 5px;
+  width: 100%;
+}
+.tab-form .form-group-sm label {
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 5px 0 2px 0;
+  color: #000000;
+  font-weight: bold;
+}
+.tab-form .row {
+  font-size: 14px;
+  line-height: 20px;
+}
+.tab-form h5 {
+  margin-bottom: 5px;
+}
+.code {
+  font-size: 10px;
+  color: #888888;
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  margin-top: 40px;
+  border: 1px solid #ccc;
+  background-color: #FEF9A2;
+  padding: 15px;
+}
