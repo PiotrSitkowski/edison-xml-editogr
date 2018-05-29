@@ -1,0 +1,21 @@
+{
+    "name": "edison/edi",
+    "description": "Edison - manager faktur XML",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piotr Sitkowski",
+            "email": "piotr@sitkowski.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4" : {
+            "" : ["src/", "src/Utils/", "config/"]
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "smarty/smarty": "^3.1"
+    },
+    "repositories": {}
+}

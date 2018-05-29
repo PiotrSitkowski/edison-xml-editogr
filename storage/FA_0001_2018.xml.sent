@@ -1,0 +1,147 @@
+<Document-Invoice>
+    <Invoice-Header>
+        <InvoiceNumber><![CDATA[FA/0001/2018]]></InvoiceNumber>
+        <InvoiceDate>2018-01-23</InvoiceDate>
+        <SalesDate>2018-01-15</SalesDate>
+        <InvoiceCurrency>PLN</InvoiceCurrency>
+        <InvoicePaymentDueDate>2018-03-26</InvoicePaymentDueDate>
+        <InvoicePaymentTerms>62</InvoicePaymentTerms>
+        <DocumentFunctionCode>O</DocumentFunctionCode>
+        <Order>
+            <BuyerOrderNumber>00312335</BuyerOrderNumber>
+            <BuyerOrderDate>2018-01-11</BuyerOrderDate>
+        </Order>
+        <Delivery>
+            <DeliveryLocationNumber>5000004210401</DeliveryLocationNumber>
+            <DeliveryDate>2018-01-15</DeliveryDate>
+            <DespatchNumber>WZ/001/2018</DespatchNumber>
+            <DespatchAdviceNumber></DespatchAdviceNumber>
+            <Name><![CDATA[Noname Company Częstochowa]]></Name>
+            <StreetAndNumber><![CDATA[Fikcyjna 100/200]]></StreetAndNumber>
+            <CityName><![CDATA[Częstochowa]]></CityName>
+            <PostalCode>42-200</PostalCode>
+            <Country>PL</Country>
+        </Delivery>
+    </Invoice-Header>
+    <Invoice-Parties>
+        <Buyer>
+            <ILN>1900014183314</ILN>
+            <TaxID>1260309172</TaxID>
+            <AccountNumber></AccountNumber>
+            <Name><![CDATA["NONAME POLSKA" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ ]]></Name>
+            <StreetAndNumber><![CDATA[ul. Nieznana 0]]></StreetAndNumber>
+            <CityName><![CDATA[Piaseczno]]></CityName>
+            <PostalCode>05-500</PostalCode>
+            <Country>PL</Country>
+        </Buyer>
+        <Payer>
+            <ILN>1900314185314</ILN>
+            <TaxID>1260309171</TaxID>
+            <AccountNumber></AccountNumber>
+            <Name><![CDATA["NONAME POLSKA" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ ]]></Name>
+            <StreetAndNumber><![CDATA[ul. Nieznana 0]]></StreetAndNumber>
+            <CityName><![CDATA[Piaseczno]]></CityName>
+            <PostalCode>05-500</PostalCode>
+            <Country>PL</Country>
+        </Payer>
+        <Invoicee>
+            <ILN>1900014180314</ILN>
+            <TaxID>1260309174</TaxID>
+            <AccountNumber></AccountNumber>
+            <Name><![CDATA["NONAME POLSKA" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ ]]></Name>
+            <StreetAndNumber><![CDATA[ul. Nieznana 0]]></StreetAndNumber>
+            <CityName><![CDATA[Piaseczno]]></CityName>
+            <PostalCode>05-500</PostalCode>
+            <Country>PL</Country>
+        </Invoicee>
+        <Seller>
+            <ILN>7907377220002</ILN>
+            <TaxID>1432156789</TaxID>
+            <AccountNumber>11-00001111-1000001010111111</AccountNumber>
+            <CodeByBuyer>803</CodeByBuyer>
+            <Name><![CDATA[SECOND COMPANY SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ SPÓŁKA KOMANDYTOWA ]]></Name>
+            <StreetAndNumber><![CDATA[ul. Fikcyjna 19]]></StreetAndNumber>
+            <CityName><![CDATA[Częstochowa]]></CityName>
+            <PostalCode>42-200</PostalCode>
+            <Country>PL</Country>
+            <UtilizationRegisterNumber></UtilizationRegisterNumber>
+            <CourtAndCapitalInformation/>
+        </Seller>
+        <Payee>
+            <ILN>1907347240001</ILN>
+            <TaxID>1242033339</TaxID>
+            <AccountNumber>11-00001111-1000001010111111</AccountNumber>
+            <Name><![CDATA[SECOND COMPANY SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ SPÓŁKA KOMANDYTOWA ]]></Name>
+            <StreetAndNumber><![CDATA[ul. Fikcyjna 19]]></StreetAndNumber>
+            <CityName><![CDATA[Częstochowa]]></CityName>
+            <PostalCode>42-200</PostalCode>
+            <Country>PL</Country>
+        </Payee>
+        <SellerHeadquarters>
+            <ILN>1242033339</ILN>
+            <Name><![CDATA[SECOND COMPANY SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ SPÓŁKA KOMANDYTOWA ]]></Name>
+            <StreetAndNumber><![CDATA[ul. Fikcyjna 19]]></StreetAndNumber>
+            <CityName><![CDATA[Częstochowa]]></CityName>
+            <PostalCode>42-200</PostalCode>
+            <Country>PL</Country>
+        </SellerHeadquarters>
+    </Invoice-Parties>
+    <Invoice-Lines>
+        <Line>
+            <Line-Item>
+                <LineNumber>1</LineNumber>
+                <EAN>1900000041430</EAN>
+                <BuyerItemCode>122222 Produkt testowy z uchwytem</BuyerItemCode>
+                <SupplierItemCode>411 - 222</SupplierItemCode>
+                <ItemDescription><![CDATA[PRODUKT TESTOWY Z UCHWYTEM 2M 3335522111]]></ItemDescription>
+                <ItemType>CU</ItemType>
+                <InvoiceQuantity>10.000</InvoiceQuantity>
+                <UnitOfMeasure>PCE</UnitOfMeasure>
+                <InvoiceUnitPacksize>1.000</InvoiceUnitPacksize>
+                <PackItemUnitOfMeasure>PCE</PackItemUnitOfMeasure>
+                <InvoiceUnitNetPrice>34.95</InvoiceUnitNetPrice>
+                <TaxRate>23.00</TaxRate>
+                <TaxCategoryCode>S</TaxCategoryCode>
+                <TaxReference>
+                    <ReferenceType>PKWiU</ReferenceType>
+                    <ReferenceNumber></ReferenceNumber>
+                </TaxReference>
+                <TaxAmount>80.39</TaxAmount>
+                <NetAmount>349.50</NetAmount>
+            </Line-Item>
+            <Line-Order>
+                <BuyerOrderNumber>10312825</BuyerOrderNumber>
+                <BuyerOrderDate>2018-01-11</BuyerOrderDate>
+            </Line-Order>
+            <Line-Delivery>
+                <DeliveryLocationNumber>1100011210400</DeliveryLocationNumber>
+                <DeliveryDate>2018-01-15</DeliveryDate>
+                <DespatchNumber>WZ/001/2018</DespatchNumber>
+                <DespatchAdviceNumber></DespatchAdviceNumber>
+                <Name><![CDATA[Noname Częstochowa]]></Name>
+                <StreetAndNumber><![CDATA[Fikcyjna 11]]></StreetAndNumber>
+                <CityName><![CDATA[Częstochowa]]></CityName>
+                <PostalCode>42-200</PostalCode>
+                <Country>PL</Country>
+            </Line-Delivery>
+        </Line>
+    </Invoice-Lines>
+    <Invoice-Summary>
+        <TotalLines>1</TotalLines>
+        <TotalNetAmount>11234.38</TotalNetAmount>
+        <TotalTaxableBasis>11234.38</TotalTaxableBasis>
+        <TotalTaxAmount>2583.91</TotalTaxAmount>
+        <TotalGrossAmount>13818.29</TotalGrossAmount>
+        <GrossAmountInWords><![CDATA[trzynaście tys. osiemset osiemnaście, 29/100 PLN]]></GrossAmountInWords>
+        <Tax-Summary>
+            <Tax-Summary-Line>
+                <TaxRate>23.00</TaxRate>
+                <TaxCategoryCode>S</TaxCategoryCode>
+                <TaxAmount>2583.91</TaxAmount>
+                <TaxableBasis>11234.38</TaxableBasis>
+                <TaxableAmount>11234.38</TaxableAmount>
+                <GrossAmount>13818.29</GrossAmount>
+            </Tax-Summary-Line>
+        </Tax-Summary>
+    </Invoice-Summary>
+</Document-Invoice>

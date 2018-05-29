@@ -1,0 +1,4 @@
+/config/confMain.ini.php
+/vendor/
+/var/cache/
+.lock
