@@ -1,4 +1,30 @@
 {extends file='layout.tpl'}
+{block 'css' append}
+<style type="text/css">
+  .header-form .form-group-sm {
+    margin-top: 15px;
+  }
+  .header-form .form-group-sm input {
+    border: 1px solid #e1e1e1;
+    padding: 5px;
+  }
+  .header-form .form-group-sm label {
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 5px 0 2px 0;
+    color: #000000;
+    font-weight: bold;
+  }
+  .header-form .row {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .header-form h5 {
+    margin-bottom: 5px;
+  }
+</style>
+{/block}
 {block 'content'}
  
   <div class="wallet">
@@ -28,14 +54,14 @@
         <input type="hidden" name="xmlfilename" value="{$filename}">
 
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link" id="header-tab" data-toggle="tab" href="#header" role="tab" aria-controls="header" aria-selected="false" style="line-height: 16px;">Nagłówek<br><span style="font-size:10px">&ltInvoice-Header&gt</span></a>
+          <li class="nav-item active">
+            <a class="nav-link" id="header-tab" data-toggle="tab" href="#header" role="tab" aria-controls="header" aria-selected="true" style="line-height: 16px;">Nagłówek<br><span style="font-size:10px">&ltInvoice-Header&gt</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="parties-tab" data-toggle="tab" href="#parties" role="tab" aria-controls="parties" aria-selected="false" style="line-height: 16px;">Oddziały<br><span style="font-size:10px">&ltInvoice-Parties&gt</span></a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" id="lines-tab" data-toggle="tab" href="#lines" role="tab" aria-controls="lines" aria-selected="true" style="line-height: 16px;">Pozycje<br><span style="font-size:10px">&ltInvoice-Lines&gt</span></a>
+          <li class="nav-item">
+            <a class="nav-link" id="lines-tab" data-toggle="tab" href="#lines" role="tab" aria-controls="lines" aria-selected="false" style="line-height: 16px;">Pozycje<br><span style="font-size:10px">&ltInvoice-Lines&gt</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="lines-tab" data-toggle="tab" href="#summary" role="tab" aria-controls="summary" aria-selected="false" style="line-height: 16px;">Podsumowanie<br><span style="font-size:10px">&ltInvoice-Summary&gt</span></a>
@@ -48,18 +74,154 @@
 
 
         <div class="tab-content" id="myTabContent" style="margin:10px;">
-          <div class="tab-pane fade" id="header" role="tabpanel" aria-labelledby="header-tab">
+          <div class="tab-pane fade show active" id="header" role="tabpanel" aria-labelledby="header-tab">
+
             <br>
-            <h5>Nagłówek</h5>
-            Nr faktury <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
+            InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
+            <br>
+
+            <section class="header-form">
+
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>InvoiceDate</label>
+                    <input type="text" name="Invoice-Header[InvoiceDate]" value="{$XMLData['Invoice-Header'].InvoiceDate}">
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>SalesDate</label>
+                    <input type="text" name="Invoice-Header[SalesDate]" value="{$XMLData['Invoice-Header'].SalesDate}">
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>InvoiceCurrency</label>
+                    <input type="text" name="Invoice-Header[InvoiceCurrency]" value="{$XMLData['Invoice-Header'].InvoiceCurrency}">
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>InvoicePaymentDueDate</label>
+                    <input type="text" name="Invoice-Header[InvoicePaymentDueDate]" value="{$XMLData['Invoice-Header'].InvoicePaymentDueDate}">
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>InvoicePaymentTerms</label>
+                    <input type="text" name="Invoice-Header[InvoicePaymentTerms]" value="{$XMLData['Invoice-Header'].InvoicePaymentTerms}">
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>DocumentFunctionCode</label>
+                    <input type="text" name="Invoice-Header[DocumentFunctionCode]" value="{$XMLData['Invoice-Header'].DocumentFunctionCode}">
+                  </div>
+                </div>
+              </div>
+
+              <br>
+              <br>
+              <h5>Order</h5>
+              <hr>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>BuyerOrderNumber</label>
+                    <input type="text" name="Invoice-Header[Order][BuyerOrderNumber]" value="{$XMLData['Invoice-Header']['Order'].BuyerOrderNumber}">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>BuyerOrderDate</label>
+                    <input type="text" name="Invoice-Header[Order][BuyerOrderDate]" value="{$XMLData['Invoice-Header']['Order'].BuyerOrderDate}">
+                  </div>
+                </div>
+              </div>
+
+              <br>
+              <br>
+              <h5>Delivery</h5>
+              <hr>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>DeliveryLocationNumber</label>
+                    <input type="text" name="Invoice-Header[Delivery][DeliveryLocationNumber]" value="{$XMLData['Invoice-Header']['Delivery'].DeliveryLocationNumber}">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>DeliveryDate</label>
+                    <input type="text" name="Invoice-Header[Delivery][DeliveryDate]" value="{$XMLData['Invoice-Header']['Delivery'].DeliveryDate}">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>DespatchNumber</label>
+                    <input type="text" name="Invoice-Header[Delivery][DespatchNumber]" value="{$XMLData['Invoice-Header']['Delivery'].DespatchNumber}">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group-sm">
+                    <label>DespatchAdviceNumber</label>
+                    <input type="text" name="Invoice-Header[Delivery][DespatchAdviceNumber]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].DespatchAdviceNumber}">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group-sm">
+                    <label>Name</label>
+                    <input type="text" name="Invoice-Header[Delivery][Name]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].Name}">
+                  </div>
+                  <div class="form-group-sm">
+                    <label>StreetAndNumber</label>
+                    <input type="text" name="Invoice-Header[Delivery][StreetAndNumber]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].StreetAndNumber}">
+                  </div>
+                  <div class="form-group-sm">
+                    <label>CityName</label>
+                    <input type="text" name="Invoice-Header[Delivery][CityName]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].CityName}">
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>PostalCode</label>
+                    <input type="text" name="Invoice-Header[Delivery][PostalCode]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].PostalCode}">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group-sm">
+                    <label>Country</label>
+                    <input type="text" name="Invoice-Header[Delivery][Country]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].Country}">
+                  </div>
+                </div>
+              </div>
+
+            </section>
+
+
+
           </div>
+
           <div class="tab-pane fade" id="parties" role="tabpanel" aria-labelledby="parties-tab">
             <br>
             <h5>Oddziały</h5>
           </div>
 
           {* --- INVOICE LINES --- *}
-          <div class="tab-pane fade show active" id="lines" role="tabpanel" aria-labelledby="lines-tab">
+          <div class="tab-pane fade" id="lines" role="tabpanel" aria-labelledby="lines-tab">
             <br>
             <h5>Pozycje faktury</h5>
             <br>

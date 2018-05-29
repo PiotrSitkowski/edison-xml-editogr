@@ -95,6 +95,9 @@ class invoicesController extends Controller
 
         // === Update XML data ===
 
+        // update Invoice-Header
+        $this->updateArrayData($XMLData['Invoice-Header'], $data['Invoice-Header']);
+
         // update Invoice-Lines
         foreach ($data['Invoice-Lines']['Line'] as $srcFormKeyPos => $srcFormPosData) {
             foreach ($data['Invoice-Lines']['Line'][$srcFormKeyPos]['Line-Item'] as $srcFormKeyLineItem => $srcFormItemData) {
@@ -123,11 +126,6 @@ class invoicesController extends Controller
             $files->saveToFile($contentXML, $newXMLfilename);
         }
 
-/*
-        header('Content-type: application/xml');
-        echo $res;
-        exit;
-*/
         return $this->editInvoiceAction($newXMLfilename);
 
     }
@@ -163,6 +161,23 @@ class invoicesController extends Controller
                 $this->render('invoices/searchResult.tpl', $contentData)
             );
 
+    }
+
+
+    private function updateArrayData(array &$sourceArray, array $data) : array
+    {
+        if (0 === count($sourceArray) || null === $sourceArray || 0 === count($data)) return $sourceArray;
+
+        foreach ($data as $key => &$value) {
+            // if (isset($sourceArray[$key]) && !is_array($value)) {
+            if (!is_array($value)) {
+                $sourceArray[$key] = $value;
+            } else {
+                // if (is_array($value)) $value = $this->updateArrayData($sourceArray[$key], $value);
+                $value = $this->updateArrayData($sourceArray[$key], $value);
+            }
+        }
+        return $sourceArray;
     }
 
 
