@@ -1,9 +1,12 @@
 #not-found-doc {
   margin-top: 100px;
 }
+
 #btn-save {
   margin-bottom: 20px;
 }
+
+/* -- TABS -- */
 #invoicesTabs li a {
   line-height: 16px;
 }
@@ -14,6 +17,8 @@
 #invoicesTabContent {
   margin:10px;
 }
+
+/* -- FORM INVOICE -- */
 .tab-form .form-group-sm {
   margin-top: 15px;
 }
@@ -37,6 +42,45 @@
 .tab-form h5 {
   margin-bottom: 5px;
 }
+
+/* -- TABLE FOR INVOICE LINES -- */
+.table-inv-lines {
+  font-size: 12px;
+}
+.table-inv-lines tbody input {
+  width: 100%;
+}
+.table-inv-lines th:nth-child(1) {
+  width: 2%;
+}
+.table-inv-lines th:nth-child(2) {
+  width: 18%;
+}
+.table-inv-lines th:nth-child(3) {
+  width: 30%;
+}
+.table-inv-lines th:nth-child(4) {
+  width: 10%;
+}
+.table-inv-lines th:nth-child(5) {
+  width: 40%;
+}
+@media screen and (max-width: 600px) {
+  .table-inv-lines {
+    font-size: 10px;
+  }
+  .table-inv-lines th:nth-child(1), .table-inv-lines td:nth-child(1) {
+    display: none;
+  }
+  .table-inv-lines th:nth-child(1) {
+    width: 8%;
+  }
+  .table-inv-lines th:nth-child(5) {
+    width: 36%;
+  }
+}
+
+/* -- TAB SOURCE CODE -- */
 .code {
   font-size: 10px;
   color: #888888;
@@ -48,3 +92,4 @@
   background-color: #FEF9A2;
   padding: 15px;
 }
+
