@@ -102,6 +102,11 @@ class invoicesController extends Controller
         $this->updateArrayData($XMLData['Invoice-Parties'], $data['Invoice-Parties']);
 
         // update Invoice-Lines
+        if (!isset($XMLData['Invoice-Lines']['Line'][0])) {
+            $tb = $XMLData['Invoice-Lines']['Line'];
+            unset($XMLData['Invoice-Lines']['Line']);
+            $XMLData['Invoice-Lines']['Line'][0] = $tb;
+        }
         foreach ($data['Invoice-Lines']['Line'] as $srcFormKeyPos => $srcFormPosData) {
             foreach ($data['Invoice-Lines']['Line'][$srcFormKeyPos]['Line-Item'] as $srcFormKeyLineItem => $srcFormItemData) {
 
