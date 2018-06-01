@@ -14,6 +14,17 @@
   font-size:10px;
   display: block;
 }
+#invoicesTabs li a span:before {
+  content: '<';
+}
+#invoicesTabs li a span:after {
+  content: '>';
+}
+#invoicesTabs li:last-child a span:before,
+#invoicesTabs li:last-child a span:after {
+  content: '';
+}
+
 #invoicesTabContent {
   margin:10px;
 }
@@ -69,10 +80,10 @@
   .table-inv-lines {
     font-size: 10px;
   }
-  .table-inv-lines th:nth-child(1), .table-inv-lines td:nth-child(1) {
+  .table-inv-lines th:first-child, .table-inv-lines td:first-child {
     display: none;
   }
-  .table-inv-lines th:nth-child(1) {
+  .table-inv-lines th:nth-child(2) {
     width: 8%;
   }
   .table-inv-lines th:nth-child(5) {

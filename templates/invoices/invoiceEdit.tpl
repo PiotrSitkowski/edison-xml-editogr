@@ -36,25 +36,25 @@
           <li class="nav-item active">
             <a class="nav-link" id="header-tab" data-toggle="tab" href="#header" role="tab" aria-controls="header" aria-selected="true">
               Nagłówek
-              <span>&ltInvoice-Header&gt</span>
+              <span>Invoice-Header</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="parties-tab" data-toggle="tab" href="#parties" role="tab" aria-controls="parties" aria-selected="false">
               Oddziały
-              <span>&ltInvoice-Parties&gt</span>
+              <span>Invoice-Parties</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="lines-tab" data-toggle="tab" href="#lines" role="tab" aria-controls="lines" aria-selected="false">
               Pozycje
-              <span>&ltInvoice-Lines&gt</span>
+              <span>Invoice-Lines</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="summary-tab" data-toggle="tab" href="#summary" role="tab" aria-controls="summary" aria-selected="false">
               Podsumowanie
-              <span>&ltInvoice-Summary&gt</span>
+              <span>Invoice-Summary</span>
             </a>
           </li>
           <li class="nav-item">
