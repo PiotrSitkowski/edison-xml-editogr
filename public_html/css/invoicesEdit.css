@@ -74,6 +74,7 @@
 /* -- TABLE FOR INVOICE LINES -- */
 .table-inv-lines {
   font-size: 12px;
+  margin-top: 30px;
 }
 .table-inv-lines tbody input {
   width: 100%;

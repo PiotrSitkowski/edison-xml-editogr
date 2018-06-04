@@ -1,6 +1,5 @@
-<br>
-InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
-<br>
+
+<h5>InvoiceNumber: {$XMLData['Invoice-Header'].InvoiceNumber}</h5>
 
 <section class="tab-form">
 
@@ -65,8 +64,6 @@ InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
     </div>
   </div>
 
-  <br>
-  <br>
   <h5>Delivery</h5>
   <hr>
   <div class="row">
