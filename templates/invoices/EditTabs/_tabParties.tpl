@@ -1,7 +1,5 @@
 <section class="tab-form">
 
-  <br>
-  <br>
   <h5>Buyer</h5>
   <hr>
   <div class="row">
@@ -64,9 +62,6 @@
 
 
 
-
-  <br>
-  <br>
   <h5>Payer</h5>
   <hr>
   <div class="row">
@@ -129,9 +124,6 @@
 
 
 
-
-  <br>
-  <br>
   <h5>Invoicee</h5>
   <hr>
   <div class="row">
@@ -194,9 +186,6 @@
 
 
 
-
-  <br>
-  <br>
   <h5>Seller</h5>
   <hr>
   <div class="row">
@@ -257,9 +246,6 @@
     </div>
   </div>
 
-
-  <br>
-  <br>
   <h5>Payee</h5>
   <hr>
   <div class="row">
@@ -323,9 +309,6 @@
 
 
 
-
-  <br>
-  <br>
   <h5>SellerHeadquarters</h5>
   <hr>
 
@@ -372,5 +355,3 @@
 
 </section>
 
-<br>
-<br>

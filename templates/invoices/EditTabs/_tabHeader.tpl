@@ -48,8 +48,6 @@ InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
     </div>
   </div>
 
-  <br>
-  <br>
   <h5>Order</h5>
   <hr>
   <div class="row">
@@ -72,7 +70,7 @@ InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
   <h5>Delivery</h5>
   <hr>
   <div class="row">
-    <div class="col-sm-6 col-md-3 col-lg-2">
+    <div class="col-sm-6 col-md-3 col-lg-3">
       <div class="form-group-sm">
         <label>DeliveryLocationNumber</label>
         <input type="text" name="Invoice-Header[Delivery][DeliveryLocationNumber]" value="{$XMLData['Invoice-Header']['Delivery'].DeliveryLocationNumber}">
@@ -93,7 +91,7 @@ InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
     <div class="col-sm-12 col-md-9 col-lg-4">
       <div class="form-group-sm">
         <label>DespatchAdviceNumber</label>
-        <input type="text" name="Invoice-Header[Delivery][DespatchAdviceNumber]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].DespatchAdviceNumber}">
+        <input type="text" name="Invoice-Header[Delivery][DespatchAdviceNumber]" value="{$XMLData['Invoice-Header']['Delivery'].DespatchAdviceNumber}">
       </div>
     </div>
   </div>
@@ -102,15 +100,15 @@ InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
     <div class="col-sm-12 col-md-9 col-lg-4">
       <div class="form-group-sm">
         <label>Name</label>
-        <input type="text" name="Invoice-Header[Delivery][Name]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].Name}">
+        <input type="text" name="Invoice-Header[Delivery][Name]" value="{$XMLData['Invoice-Header']['Delivery'].Name}">
       </div>
       <div class="form-group-sm">
         <label>StreetAndNumber</label>
-        <input type="text" name="Invoice-Header[Delivery][StreetAndNumber]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].StreetAndNumber}">
+        <input type="text" name="Invoice-Header[Delivery][StreetAndNumber]" value="{$XMLData['Invoice-Header']['Delivery'].StreetAndNumber}">
       </div>
       <div class="form-group-sm">
         <label>CityName</label>
-        <input type="text" name="Invoice-Header[Delivery][CityName]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].CityName}">
+        <input type="text" name="Invoice-Header[Delivery][CityName]" value="{$XMLData['Invoice-Header']['Delivery'].CityName}">
       </div>
 
     </div>
@@ -120,13 +118,13 @@ InvoiceNumber <strong>{$XMLData['Invoice-Header'].InvoiceNumber}</strong>
     <div class="col-sm-7 col-md-5 col-lg-2">
       <div class="form-group-sm">
         <label>PostalCode</label>
-        <input type="text" name="Invoice-Header[Delivery][PostalCode]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].PostalCode}">
+        <input type="text" name="Invoice-Header[Delivery][PostalCode]" value="{$XMLData['Invoice-Header']['Delivery'].PostalCode}">
       </div>
     </div>
     <div class="col-sm-5 col-md-4 col-lg-2">
       <div class="form-group-sm">
         <label>Country</label>
-        <input type="text" name="Invoice-Header[Delivery][Country]" style="width: 100%" value="{$XMLData['Invoice-Header']['Delivery'].Country}">
+        <input type="text" name="Invoice-Header[Delivery][Country]" value="{$XMLData['Invoice-Header']['Delivery'].Country}">
       </div>
     </div>
   </div>

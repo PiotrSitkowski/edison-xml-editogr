@@ -10,6 +10,10 @@
 #invoicesTabs li a {
   line-height: 16px;
 }
+#invoicesTabs li .active {
+  background-color: #F7F8F9;
+  border-bottom-color: #F7F8F9;
+}
 #invoicesTabs li a span {
   font-size:10px;
   display: block;
@@ -26,7 +30,20 @@
 }
 
 #invoicesTabContent {
-  margin:10px;
+  padding: 10px;
+  background-color: #F7F8F9;
+  border-right: 1px solid #D9DEE2;
+  border-bottom: 1px solid #D9DEE2;
+  border-left: 1px solid #D9DEE2;
+  margin-bottom: 50px;
+}
+
+#invoicesTabContent h5 {
+  margin: 35px 5px 5px 5px;
+}
+
+#invoicesTabContent hr {
+  margin-top: 0;
 }
 
 /* -- FORM INVOICE -- */
@@ -77,6 +94,12 @@
   width: 40%;
 }
 @media screen and (max-width: 600px) {
+  #invoicesTabs li a span {
+    display: none;
+   }
+  #invoicesTabs li a {
+    padding: 5px 15px 10px 5px;
+  }
   .table-inv-lines {
     font-size: 10px;
   }
