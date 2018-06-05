@@ -1,7 +1,9 @@
 {extends file='layout.tpl'}
 
 {block 'css' append}
-  <link rel="stylesheet" href="/css/invoicesEdit-6528b1843c.min.css">
+  <!-- build:css /css/invoicesEdit.min.css -->
+  <link rel="stylesheet" href="../assets/css/invoicesEdit.css">
+  <!-- endbuild -->
 {/block}
 
 {block 'content'}
