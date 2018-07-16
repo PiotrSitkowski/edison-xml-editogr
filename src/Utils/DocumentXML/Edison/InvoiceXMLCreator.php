@@ -278,7 +278,7 @@ class InvoiceXMLCreator
      *
      * @return DOMElement
      */
-    private function createInvoiceSummary(DOMElement $XMLNode, array $dataSummary) : DOMElement
+    private function createInvoiceSummary(DOMElement $XMLNode, array $dataSummary, bool $isCorrection = false) : DOMElement
     {
         $xml_summary = $this->addNodeElem($XMLNode, "Invoice-Summary");
 
@@ -287,6 +287,19 @@ class InvoiceXMLCreator
         $this->addNodeElem($xml_summary, "TotalTaxableBasis", $dataSummary['TotalTaxableBasis']);
         $this->addNodeElem($xml_summary, "TotalTaxAmount", $dataSummary['TotalTaxAmount']);
         $this->addNodeElem($xml_summary, "TotalGrossAmount", $dataSummary['TotalGrossAmount']);
+
+        if ($isCorrection) {
+            $this->addNodeElem($xml_summary, "PreviousTotalNetAmount", $dataSummary['PreviousTotalNetAmount']);
+            $this->addNodeElem($xml_summary, "PreviousTotalTaxableBasis", $dataSummary['PreviousTotalTaxableBasis']);
+            $this->addNodeElem($xml_summary, "PreviousTotalTaxAmount", $dataSummary['PreviousTotalTaxAmount']);
+            $this->addNodeElem($xml_summary, "PreviousTotalGrossAmount", $dataSummary['PreviousTotalGrossAmount']);
+            $this->addNodeElem($xml_summary, "CorrectionTotalNetAmount", $dataSummary['CorrectionTotalNetAmount']);
+            $this->addNodeElem($xml_summary, "CorrectionTotalTaxableBasis", $dataSummary['CorrectionTotalTaxableBasis']);
+            $this->addNodeElem($xml_summary, "CorrectionTotalTaxAmount", $dataSummary['CorrectionTotalTaxAmount']);
+            $this->addNodeElem($xml_summary, "CorrectionTotalGrossAmount", $dataSummary['CorrectionTotalGrossAmount']);
+
+        }
+
         $this->addNodeElem($xml_summary, "GrossAmountInWords", $dataSummary['GrossAmountInWords'], true);
 
         $node_tax_sum = "Tax-Summary";
@@ -300,6 +313,16 @@ class InvoiceXMLCreator
         $this->addNodeElem($xml_tax_sum_l, "TaxAmount", $dataSummary[$node_tax_sum][$node_tax_sum_l]['TaxAmount']);
         $this->addNodeElem($xml_tax_sum_l, "TaxableBasis", $dataSummary[$node_tax_sum][$node_tax_sum_l]['TaxableBasis']);
         $this->addNodeElem($xml_tax_sum_l, "TaxableAmount", $dataSummary[$node_tax_sum][$node_tax_sum_l]['TaxableAmount']);
+
+        if ($isCorrection) {
+            $this->addNodeElem($xml_tax_sum_l, "PreviousTaxRate", $dataSummary[$node_tax_sum][$node_tax_sum_l]['PreviousTaxRate']);
+            $this->addNodeElem($xml_tax_sum_l, "PreviousTaxCategoryCode", $dataSummary[$node_tax_sum][$node_tax_sum_l]['PreviousTaxCategoryCode']);
+            $this->addNodeElem($xml_tax_sum_l, "PreviousTaxAmount", $dataSummary[$node_tax_sum][$node_tax_sum_l]['PreviousTaxAmount']);
+            $this->addNodeElem($xml_tax_sum_l, "PreviousTaxableAmount", $dataSummary[$node_tax_sum][$node_tax_sum_l]['PreviousTaxableAmount']);
+            $this->addNodeElem($xml_tax_sum_l, "CorrectionTaxAmount", $dataSummary[$node_tax_sum][$node_tax_sum_l]['CorrectionTaxAmount']);
+            $this->addNodeElem($xml_tax_sum_l, "CorrectionTaxableAmount", $dataSummary[$node_tax_sum][$node_tax_sum_l]['CorrectionTaxableAmount']);
+        }
+
         $this->addNodeElem($xml_tax_sum_l, "GrossAmount", $dataSummary[$node_tax_sum][$node_tax_sum_l]['GrossAmount']);
 
         return $xml_summary;
@@ -361,6 +384,10 @@ class InvoiceXMLCreator
 
         $xml_root = $this->xml->createElement( "Document-Invoice" );
 
+
+        $invoiceNum = $this->invoiceData['Invoice-Header']['InvoiceNumber'] ?? null;
+        $isCorrection = !empty($invoiceNum) && preg_match('/^FKOR/',$invoiceNum);
+
         # header
         $xml_header = $this->createInvoiceHeader($xml_root, $this->invoiceData['Invoice-Header'] ?? []);
 
@@ -371,10 +398,9 @@ class InvoiceXMLCreator
         $xml_lines = $this->createInvoiceLines($xml_root, $this->invoiceData['Invoice-Lines']['Line'] ?? []);
 
         # summary
-        $this->createInvoiceSummary($xml_root, $this->invoiceData['Invoice-Summary'] ?? []);
+        $this->createInvoiceSummary($xml_root, $this->invoiceData['Invoice-Summary'] ?? [], $isCorrection);
 
         $this->xml->appendChild($xml_root);
-
 
         return $this->removeXMLversion(
             $this->xml->saveXML()
