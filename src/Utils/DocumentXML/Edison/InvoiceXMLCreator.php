@@ -15,6 +15,13 @@ class InvoiceXMLCreator
     private $xml = null; // DOMDocument
     private $invoiceData = [];
 
+    protected $DeliveriesGloss = [
+            'Auchan Wola Bykowska' => [
+                    'DeliveryLocationNumber' => '5900014210400',
+                    'ParitesBuyerName' => 'Auchan Polska Spółka z ograniczoną odpowiedzialnością'
+                ],
+        ];
+
     public function __construct(DOMDocument $xml, array $XMLData)
     {
         $this->xml = $xml;
@@ -376,6 +383,24 @@ class InvoiceXMLCreator
         return str_replace("<?xml version=\"1.0\"?>\n", '', $xmlData);
     }
 
+    /**
+     * fixEmptyFields FIX empty data, try update from glossaries
+     * @return void
+     */
+    private function fixEmptyFields() : void
+    {
+        $DeliveryName = $this->invoiceData['Invoice-Header']['Delivery']['Name'] ?? null;
+        $DeliveryLocationNumber = $this->invoiceData['Invoice-Header']['Delivery']['DeliveryLocationNumber'] ?? null;
+        $ParitesBuyerName = $this->invoiceData['Invoice-Parties']['Buyer']['Name'];
+
+        // if $DeliveryLocationNumber is empty and is defined in glossary $this->DeliveriesGloss, get this number from glossary
+        if (empty($DeliveryLocationNumber) && !empty($DeliveryName) && isset($this->DeliveriesGloss[$DeliveryName]))
+            $this->invoiceData['Invoice-Header']['Delivery']['DeliveryLocationNumber'] = $this->DeliveriesGloss[$DeliveryName]['DeliveryLocationNumber'];
+
+        // if $ParitesBuyerName is empty and is defined in glossary $this->DeliveriesGloss, get this name from glossary
+        if (empty($ParitesBuyerName) && !empty($DeliveryName) && isset($this->DeliveriesGloss[$DeliveryName]))
+            $this->invoiceData['Invoice-Parties']['Buyer']['Name'] = $this->DeliveriesGloss[$DeliveryName]['ParitesBuyerName'];
+    }
 
     /**
      * generateXML Generating the XML content from created nodes
@@ -391,6 +416,9 @@ class InvoiceXMLCreator
 
         $invoiceNum = $this->invoiceData['Invoice-Header']['InvoiceNumber'] ?? null;
         $isCorrection = !empty($invoiceNum) && preg_match('/^FKOR/',$invoiceNum);
+
+        # fix empty data, try update from glossaries
+        $this->fixEmptyFields();
 
         # header
         $xml_header = $this->createInvoiceHeader($xml_root, $this->invoiceData['Invoice-Header'] ?? []);
