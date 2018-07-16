@@ -225,10 +225,14 @@ class InvoiceXMLCreator
             $xml_line = $this->addNodeElem($xml_invoice_lines, "Line");
 
             $node = "Line-Item";
+
+            $BuyerItemCode = $item[$node]['BuyerItemCode'] ?? null;
+            if (strlen($BuyerItemCode) > 6) $BuyerItemCode = substr($BuyerItemCode,0,6);
+
             $xml_l_item = $this->addNodeElem($xml_line, $node);
             $this->addNodeElem($xml_l_item, "LineNumber", $item[$node]['LineNumber']);
             $this->addNodeElem($xml_l_item, "EAN", $item[$node]['EAN']);
-            $this->addNodeElem($xml_l_item, "BuyerItemCode", $item[$node]['BuyerItemCode']);
+            $this->addNodeElem($xml_l_item, "BuyerItemCode", $BuyerItemCode);
             $this->addNodeElem($xml_l_item, "SupplierItemCode", $item[$node]['SupplierItemCode']);
             $this->addNodeElem($xml_l_item, "ItemDescription", $item[$node]['ItemDescription'], true);
             $this->addNodeElem($xml_l_item, "ItemType", $item[$node]['ItemType']);
